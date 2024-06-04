@@ -17,7 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class DetalleActivity extends AppCompatActivity {
+public class DetallesActivity extends AppCompatActivity {
 
     private EditText editTextNumRecibo, editTextNombre, editTextHorasTrabajadas, editTextHorasExtras;
     private EditText editTextSubtotal, editTextImpuesto, editTextTotal;
