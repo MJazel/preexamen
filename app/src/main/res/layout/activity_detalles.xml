@@ -19,15 +19,17 @@
             android:paddingBottom="20dp" />
 
         <TextView
+            android:id="@+id/textViewNombreTrabajador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Evaristo Toscano"
+            android:text="Nombre del Trabajador"
             android:paddingBottom="20dp" />
 
         <EditText
             android:id="@+id/editTextNumRecibo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:hint="Número de recibo"
             android:paddingBottom="10dp" />
 
@@ -35,6 +37,7 @@
             android:id="@+id/editTextNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:hint="Nombre"
             android:paddingBottom="10dp" />
 
@@ -42,6 +45,7 @@
             android:id="@+id/editTextHorasTrabajadas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:hint="Horas trabajadas"
             android:inputType="number"
             android:paddingBottom="10dp" />
@@ -51,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Horas Extras"
+            android:padding="20dp"
             android:inputType="number"
             android:paddingBottom="20dp" />
 
@@ -65,17 +70,20 @@
                 android:id="@+id/radioButtonAuxiliar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="20dp"
                 android:text="Auxiliar" />
 
             <RadioButton
                 android:id="@+id/radioButtonAlbanil"
                 android:layout_width="wrap_content"
+                android:padding="20dp"
                 android:layout_height="wrap_content"
                 android:text="Albañil" />
 
             <RadioButton
                 android:id="@+id/radioButtonIngObra"
                 android:layout_width="wrap_content"
+                android:padding="20dp"
                 android:layout_height="wrap_content"
                 android:text="Ing. Obra" />
         </RadioGroup>
@@ -84,6 +92,7 @@
             android:id="@+id/editTextSubtotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:hint="Subtotal"
             android:enabled="false"
             android:paddingBottom="10dp" />
@@ -93,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Impuesto"
+            android:padding="20dp"
             android:enabled="false"
             android:paddingBottom="10dp" />
 
@@ -100,6 +110,7 @@
             android:id="@+id/editTextTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="20dp"
             android:hint="Total a pagar"
             android:enabled="false"
             android:paddingBottom="20dp" />

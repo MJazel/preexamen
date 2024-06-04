@@ -19,10 +19,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class DetalleActivity extends AppCompatActivity {
 
-    private EditText editTextNumRecibo, editTextHorasTrabajadas, editTextHorasExtras;
+    private EditText editTextNumRecibo, editTextNombre, editTextHorasTrabajadas, editTextHorasExtras;
+    private EditText editTextSubtotal, editTextImpuesto, editTextTotal;
+    private TextView textViewNombreTrabajador;
     private RadioGroup radioGroupPuesto;
-    private TextView textViewSubtotal, textViewImpuesto, textViewTotal;
-    private Button buttonCalcular;
+    private Button buttonCalcular, buttonLimpiar, buttonRegresar;
     private String nombre;
 
     @Override
@@ -31,57 +32,58 @@ public class DetalleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalles);
 
         editTextNumRecibo = findViewById(R.id.editTextNumRecibo);
+        editTextNombre = findViewById(R.id.editTextNombre);
         editTextHorasTrabajadas = findViewById(R.id.editTextHorasTrabajadas);
         editTextHorasExtras = findViewById(R.id.editTextHorasExtras);
+        editTextSubtotal = findViewById(R.id.editTextSubtotal);
+        editTextImpuesto = findViewById(R.id.editTextImpuesto);
+        editTextTotal = findViewById(R.id.editTextTotal);
+        textViewNombreTrabajador = findViewById(R.id.textViewNombreTrabajador);
         radioGroupPuesto = findViewById(R.id.radioGroupPuesto);
-        textViewSubtotal = findViewById(R.id.textViewSubtotal);
-        textViewImpuesto = findViewById(R.id.textViewImpuesto);
-        textViewTotal = findViewById(R.id.textViewTotal);
         buttonCalcular = findViewById(R.id.buttonCalcular);
+        buttonLimpiar = findViewById(R.id.buttonLimpiar);
+        buttonRegresar = findViewById(R.id.buttonRegresar);
 
         Intent intent = getIntent();
         nombre = intent.getStringExtra("nombre");
+        textViewNombreTrabajador.setText(nombre);
 
         buttonCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    int numRecibo = Integer.parseInt(editTextNumRecibo.getText().toString());
-                    int horasTrabajadas = Integer.parseInt(editTextHorasTrabajadas.getText().toString());
-                    int horasExtras = Integer.parseInt(editTextHorasExtras.getText().toString());
-                    int puesto = obtenerPuestoSeleccionado();
+                calcularPago();
+            }
+        });
 
-                    if (puesto != 0) {
-                        ReciboDeNomina recibo = new ReciboDeNomina(numRecibo, nombre, horasTrabajadas, horasExtras, puesto);
+        buttonLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarCampos();
+            }
+        });
 
-                        double subtotal = recibo.calcularSubtotal();
-                        double impuesto = recibo.calcularImpuesto();
-                        double total = recibo.calcularTotalAPagar();
-
-                        textViewSubtotal.setText("Subtotal: " + subtotal);
-                        textViewImpuesto.setText("Impuesto: " + impuesto);
-                        textViewTotal.setText("Total a pagar: " + total);
-                    } else {
-                        Toast.makeText(DetalleActivity.this, "Seleccione un puesto", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (NumberFormatException e) {
-                    Toast.makeText(DetalleActivity.this, "Por favor, ingrese todos los campos correctamente.", Toast.LENGTH_SHORT).show();
-                }
+        buttonRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
 
-    private int obtenerPuestoSeleccionado() {
-        int selectedId = radioGroupPuesto.getCheckedRadioButtonId();
-        if (selectedId == R.id.radioButtonAuxiliar) {
-            return 1;
-        } else if (selectedId == R.id.radioButtonAlbanil) {
-            return 2;
-        } else if (selectedId == R.id.radioButtonIngObra) {
-            return 3;
-        } else {
-            return 0; // Ningún puesto seleccionado
-        }
+    private void calcularPago() {
+        // Lógica de cálculo de pago aquí
+    }
+
+    private void limpiarCampos() {
+        editTextNumRecibo.setText("");
+        editTextNombre.setText("");
+        editTextHorasTrabajadas.setText("");
+        editTextHorasExtras.setText("");
+        editTextSubtotal.setText("");
+        editTextImpuesto.setText("");
+        editTextTotal.setText("");
+        radioGroupPuesto.clearCheck();
     }
 }
+
 

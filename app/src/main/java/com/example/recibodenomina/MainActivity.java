@@ -21,16 +21,16 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editTextNombre;
-    private Button buttonEntrar;
+    private Button buttonEntrar, buttonSalir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
         editTextNombre = findViewById(R.id.editTextNombre);
         buttonEntrar = findViewById(R.id.buttonEntrar);
+        buttonSalir = findViewById(R.id.buttonSalir);
 
         buttonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,5 +42,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
