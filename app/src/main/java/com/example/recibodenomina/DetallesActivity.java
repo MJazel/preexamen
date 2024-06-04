@@ -51,7 +51,7 @@ public class DetallesActivity extends AppCompatActivity {
                 int puesto = 0;
 
                 switch (radioGroupPuesto.getCheckedRadioButtonId()) {
-                    case R.id.radioButtonAuxiliar:
+                    case (R.id.radioButtonAuxiliar):
                         puesto = 1;
                         break;
                     case R.id.radioButtonAlbanil:
