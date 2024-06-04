@@ -1,85 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetallesActivity">
+    android:layout_height="match_parent">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <EditText
-        android:id="@+id/editTextNumRecibo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:hint="Número de recibo" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF">
 
-    <EditText
-        android:id="@+id/editTextHorasTrabajadas"
-        android:layout_width="match_parent"
-        android:padding="20dp"
-        android:layout_height="wrap_content"
-        android:hint="Horas trabajadas" />
-
-    <EditText
-        android:id="@+id/editTextHorasExtras"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:hint="Horas extras" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupPuesto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/radioButtonAuxiliar"
+        <TextView
             android:layout_width="wrap_content"
-            android:padding="20dp"
             android:layout_height="wrap_content"
-            android:text="Auxiliar" />
-        <RadioButton
-            android:id="@+id/radioButtonAlbanil"
+            android:text="Calculo de Pago de Nomina"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="20dp" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:padding="20dp"
             android:layout_height="wrap_content"
-            android:text="Albañil" />
-        <RadioButton
-            android:id="@+id/radioButtonIngObra"
-            android:layout_width="wrap_content"
-            android:padding="20dp"
+            android:text="Evaristo Toscano"
+            android:paddingBottom="20dp" />
+
+        <EditText
+            android:id="@+id/editTextNumRecibo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ing. Obra" />
-    </RadioGroup>
+            android:hint="Número de recibo"
+            android:paddingBottom="10dp" />
 
-    <Button
-        android:id="@+id/buttonCalcular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calcular" />
+        <EditText
+            android:id="@+id/editTextNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:paddingBottom="10dp" />
 
-    <TextView
-        android:id="@+id/textViewSubtotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Subtotal: " />
+        <EditText
+            android:id="@+id/editTextHorasTrabajadas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Horas trabajadas"
+            android:inputType="number"
+            android:paddingBottom="10dp" />
 
-    <TextView
-        android:id="@+id/textViewImpuesto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Impuesto: " />
+        <EditText
+            android:id="@+id/editTextHorasExtras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Horas Extras"
+            android:inputType="number"
+            android:paddingBottom="20dp" />
 
-    <TextView
-        android:id="@+id/textViewTotal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Total a pagar: " />
-</LinearLayout>
+        <RadioGroup
+            android:id="@+id/radioGroupPuesto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <RadioButton
+                android:id="@+id/radioButtonAuxiliar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Auxiliar" />
+
+            <RadioButton
+                android:id="@+id/radioButtonAlbanil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Albañil" />
+
+            <RadioButton
+                android:id="@+id/radioButtonIngObra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ing. Obra" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editTextSubtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subtotal"
+            android:enabled="false"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/editTextImpuesto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Impuesto"
+            android:enabled="false"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/editTextTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total a pagar"
+            android:enabled="false"
+            android:paddingBottom="20dp" />
+
+        <Button
+            android:id="@+id/buttonCalcular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calcular"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/buttonLimpiar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Limpiar"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/buttonRegresar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Regresar" />
+    </LinearLayout>
 </ScrollView>

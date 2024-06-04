@@ -17,7 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class DetallesActivity extends AppCompatActivity {
+public class DetalleActivity extends AppCompatActivity {
 
     private EditText editTextNumRecibo, editTextHorasTrabajadas, editTextHorasExtras;
     private RadioGroup radioGroupPuesto;
@@ -45,33 +45,43 @@ public class DetallesActivity extends AppCompatActivity {
         buttonCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int numRecibo = Integer.parseInt(editTextNumRecibo.getText().toString());
-                int horasTrabajadas = Integer.parseInt(editTextHorasTrabajadas.getText().toString());
-                int horasExtras = Integer.parseInt(editTextHorasExtras.getText().toString());
-                int puesto = 0;
+                try {
+                    int numRecibo = Integer.parseInt(editTextNumRecibo.getText().toString());
+                    int horasTrabajadas = Integer.parseInt(editTextHorasTrabajadas.getText().toString());
+                    int horasExtras = Integer.parseInt(editTextHorasExtras.getText().toString());
+                    int puesto = obtenerPuestoSeleccionado();
 
-                switch (radioGroupPuesto.getCheckedRadioButtonId()) {
-                    case (R.id.radioButtonAuxiliar):
-                        puesto = 1;
-                        break;
-                    case R.id.radioButtonAlbanil:
-                        puesto = 2;
-                        break;
-                    case R.id.radioButtonIngObra:
-                        puesto = 3;
-                        break;
+                    if (puesto != 0) {
+                        ReciboDeNomina recibo = new ReciboDeNomina(numRecibo, nombre, horasTrabajadas, horasExtras, puesto);
+
+                        double subtotal = recibo.calcularSubtotal();
+                        double impuesto = recibo.calcularImpuesto();
+                        double total = recibo.calcularTotalAPagar();
+
+                        textViewSubtotal.setText("Subtotal: " + subtotal);
+                        textViewImpuesto.setText("Impuesto: " + impuesto);
+                        textViewTotal.setText("Total a pagar: " + total);
+                    } else {
+                        Toast.makeText(DetalleActivity.this, "Seleccione un puesto", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (NumberFormatException e) {
+                    Toast.makeText(DetalleActivity.this, "Por favor, ingrese todos los campos correctamente.", Toast.LENGTH_SHORT).show();
                 }
-
-                ReciboDeNomina recibo = new ReciboDeNomina(numRecibo, nombre, horasTrabajadas, horasExtras, puesto);
-
-                double subtotal = recibo.calcularSubtotal();
-                double impuesto = recibo.calcularImpuesto();
-                double total = recibo.calcularTotalAPagar();
-
-                textViewSubtotal.setText("Subtotal: " + subtotal);
-                textViewImpuesto.setText("Impuesto: " + impuesto);
-                textViewTotal.setText("Total a pagar: " + total);
             }
         });
     }
+
+    private int obtenerPuestoSeleccionado() {
+        int selectedId = radioGroupPuesto.getCheckedRadioButtonId();
+        if (selectedId == R.id.radioButtonAuxiliar) {
+            return 1;
+        } else if (selectedId == R.id.radioButtonAlbanil) {
+            return 2;
+        } else if (selectedId == R.id.radioButtonIngObra) {
+            return 3;
+        } else {
+            return 0; // Ningún puesto seleccionado
+        }
+    }
 }
+
