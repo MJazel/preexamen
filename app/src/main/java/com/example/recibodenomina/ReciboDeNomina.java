@@ -14,6 +14,7 @@ public class ReciboDeNomina {
         this.horasTrabajadas = horasTrabajadas;
         this.horasExtras = horasExtras;
         this.puesto = puesto;
+
     }
 
     public double calcularPagoPorHora() {
