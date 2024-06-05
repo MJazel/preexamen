@@ -7,8 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="#FFFFFF">
+        android:padding="50dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,24 +28,26 @@
             android:id="@+id/editTextNumRecibo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:hint="Número de recibo"
+            android:padding="20dp"
+            android:enabled="false"
             android:paddingBottom="10dp" />
 
         <EditText
             android:id="@+id/editTextNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:hint="Nombre"
+            android:padding="20dp"
+            android:enabled="false"
             android:paddingBottom="10dp" />
 
         <EditText
             android:id="@+id/editTextHorasTrabajadas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:hint="Horas trabajadas"
+            android:padding="20dp"
             android:inputType="number"
             android:paddingBottom="10dp" />
 
@@ -55,37 +56,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Horas Extras"
-            android:padding="20dp"
             android:inputType="number"
             android:paddingBottom="20dp" />
 
         <RadioGroup
             android:id="@+id/radioGroupPuesto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/radioButtonAuxiliar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
                 android:text="Auxiliar" />
 
             <RadioButton
                 android:id="@+id/radioButtonAlbanil"
                 android:layout_width="wrap_content"
-                android:padding="20dp"
                 android:layout_height="wrap_content"
                 android:text="Albañil" />
 
             <RadioButton
                 android:id="@+id/radioButtonIngObra"
                 android:layout_width="wrap_content"
-                android:padding="20dp"
                 android:layout_height="wrap_content"
-                android:text="Ing. Obra" />
+                android:text="Ing. de Obra" />
         </RadioGroup>
 
         <EditText
@@ -110,7 +105,6 @@
             android:id="@+id/editTextTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:hint="Total a pagar"
             android:enabled="false"
             android:paddingBottom="20dp" />

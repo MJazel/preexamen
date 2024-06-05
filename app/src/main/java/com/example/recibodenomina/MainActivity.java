@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nombre = editTextNombre.getText().toString();
-                Intent intent = new Intent(MainActivity.this, DetalleActivity.class);
+                Intent intent = new Intent(MainActivity.this, DetallesActivity.class);
                 intent.putExtra("nombre", nombre);
                 startActivity(intent);
             }
